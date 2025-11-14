@@ -1638,3 +1638,184 @@ def create_aqueduct(
 if __name__ == "__main__":
     logger.info("Starting Advanced MCP server with stdio transport")
     mcp.run(transport='stdio') 
+
+# ===================================================================
+# VERSE / UEFN CODE GENERATION TOOLS
+# ===================================================================
+
+@mcp.tool()
+async def generate_verse_device(
+    device_type: str,
+    module_name: str,
+    description: str = "",
+    **kwargs
+) -> str:
+    """
+    Generate Verse device code from template for UEFN/Fortnite Creative.
+
+    Args:
+        device_type: Type of device. Options: 'button', 'timer', 'spawner', 'item_granter', 
+                     'trigger', 'teleporter', 'damage', 'collectible', 'mutator', 'conditional_button'
+        module_name: Name for the generated Verse module/class
+        description: Description of what the device does
+        **kwargs: Template-specific parameters (e.g., COOLDOWN_SECONDS, IF_AUTO_START)
+
+    Returns:
+        Generated Verse code
+
+    Examples:
+        # Button with cooldown
+        generate_verse_device('button', 'my_button', 'Handles button presses', 
+                            BUTTON_NAME='TriggerButton', IF_COOLDOWN=True, COOLDOWN_SECONDS='5.0')
+
+        # Timer device
+        generate_verse_device('timer', 'countdown', '10 second timer',
+                            TIMER_NAME='GameTimer', DURATION_SECONDS='10.0', IF_AUTO_START=True)
+    """
+    from verse_mcp_tools import generate_verse_device as gen_device
+    return gen_device(device_type, module_name, description, **kwargs)
+
+
+@mcp.tool()
+async def generate_gameplay_system(
+    system_type: str,
+    module_name: str,
+    description: str = "",
+    **kwargs
+) -> str:
+    """
+    Generate Verse gameplay system code from template.
+
+    Args:
+        system_type: Type of system. Options: 'scoring', 'rounds', 'teams', 'elimination',
+                     'capture_point', 'race', 'waves'
+        module_name: Name for the generated Verse module/class
+        description: Description of the system
+        **kwargs: Template-specific parameters
+
+    Returns:
+        Generated Verse code
+
+    Examples:
+        # Scoring system
+        generate_gameplay_system('scoring', 'game_scoring', 'Track scores',
+                               WINNING_SCORE='100', IF_TEAM_SCORING=True)
+
+        # Round controller
+        generate_gameplay_system('rounds', 'round_manager', 'Manage rounds',
+                               ROUND_DURATION_SECONDS='300', MAX_ROUNDS='3')
+    """
+    from verse_mcp_tools import generate_gameplay_system as gen_system
+    return gen_system(system_type, module_name, description, **kwargs)
+
+
+@mcp.tool()
+async def query_fortnite_api(
+    search_query: str,
+    search_type: str = "all",
+    limit: int = 10
+) -> str:
+    """
+    Search the Fortnite/Verse API for classes, functions, or keywords.
+
+    Args:
+        search_query: Search term (class name, keyword, function name)
+        search_type: Type of search ('all', 'classes', 'functions', 'devices')
+        limit: Maximum results to return (default: 10)
+
+    Returns:
+        Formatted search results
+
+    Examples:
+        query_fortnite_api('button', search_type='classes')
+        query_fortnite_api('spawn', search_type='functions')
+        query_fortnite_api('device', search_type='devices')
+    """
+    from verse_mcp_tools import query_fortnite_api as query_api
+    return query_api(search_query, search_type, limit)
+
+
+@mcp.tool()
+async def get_class_details(class_name: str) -> str:
+    """
+    Get detailed information about a Verse/Fortnite class.
+
+    Args:
+        class_name: Name of the class (exact or partial match)
+
+    Returns:
+        Formatted class details with functions, properties, events
+
+    Examples:
+        get_class_details('button_device')
+        get_class_details('timer_device')
+    """
+    from verse_mcp_tools import get_class_details as get_details
+    return get_details(class_name)
+
+
+@mcp.tool()
+async def validate_verse_code(code: str) -> str:
+    """
+    Validate Verse code syntax.
+
+    Checks for balanced braces, valid class structure, proper declarations.
+
+    Args:
+        code: Verse code to validate
+
+    Returns:
+        Validation results with errors if any
+
+    Examples:
+        validate_verse_code(generated_code)
+    """
+    from verse_mcp_tools import validate_verse_code as validate
+    return validate(code)
+
+
+@mcp.tool()
+async def insert_or_update_verse_file(
+    project_path: str,
+    file_path: str,
+    code: str,
+    create_if_missing: bool = True
+) -> str:
+    """
+    Write or update a Verse file in a UEFN project.
+
+    Args:
+        project_path: Path to UEFN project root
+        file_path: Relative path to Verse file (e.g., 'Devices/MyDevice.verse')
+        code: Verse code content
+        create_if_missing: Create file if doesn't exist (default: True)
+
+    Returns:
+        Status message
+
+    Examples:
+        insert_or_update_verse_file(
+            '/path/to/uefn/project',
+            'Devices/ButtonHandler.verse',
+            generated_code
+        )
+    """
+    from verse_mcp_tools import insert_or_update_verse_file as insert_file
+    return insert_file(project_path, file_path, code, create_if_missing)
+
+
+@mcp.tool()
+async def list_verse_templates() -> str:
+    """
+    List all available Verse code templates.
+
+    Returns:
+        Formatted list of templates by category (devices, gameplay, utils)
+
+    Examples:
+        list_verse_templates()
+    """
+    from verse_mcp_tools import list_available_templates
+    return list_available_templates()
+
+
