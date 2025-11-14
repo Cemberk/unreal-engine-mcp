@@ -105,3 +105,21 @@ MCPGameProject/Config/DefaultEditorPerProjectUserSettings.ini
 # Clang
 .clang-format
 .clangd
+
+# UEFN Migration - Verse digest files (large, generated content)
+VerseDigests/*.digest.verse
+
+# UEFN Migration - Parsed data (generated)
+VerseParsed/*.json
+VerseParsed/*.sqlite
+VerseParsed/*.db
+
+# UEFN Migration - Exports (generated)
+Exports/manifests/*.json
+Exports/meshes/*.fbx
+Exports/meshes/*.uasset
+Exports/materials/*
+Exports/verse/*.verse
+
+# UEFN Migration - Tests (generated)
+Tests/sample_projects/*/
