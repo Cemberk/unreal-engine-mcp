@@ -4,6 +4,8 @@
 
 This guide walks through the complete process of exporting a UE5 level to UEFN/Fortnite Creative using the export MCP tools.
 
+> **Note on Automation**: UEFN does not expose automation APIs like Remote Control (by Epic's design for safety/consistency). Steps 3-7 below require manual interaction with UEFN. The export pipeline (Steps 1-2) is fully automated and reduces overall workflow time by ~90% compared to manual level recreation.
+
 ---
 
 ## Overview
