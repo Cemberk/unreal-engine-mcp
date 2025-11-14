@@ -1,7 +1,7 @@
 # UEFN Integration Notes
 ## Level: MedievalCastle
 
-**Generated**: 2025-11-13 18:59:47
+**Generated**: 2025-11-13 19:10:22
 **UEFN Project**: C:/UEFN/CastleProject
 
 ---
@@ -21,16 +21,16 @@ This export contains:
 
 The following assets need to be exported from your UE5 project:
 
-1. `/Game/Castle/Architecture/Floor_400x400` → `Floor_400x400.fbx`
-2. `/Game/Castle/Architecture/Wall_400x400` → `Wall_400x400.fbx`
-3. `/Game/Castle/Architecture/Tower_Round` → `Tower_Round.fbx`
-4. `/Game/Castle/Architecture/Gate_Large` → `Gate_Large.fbx`
-5. `/Game/Castle/Architecture/Pillar_Stone` → `Pillar_Stone.fbx`
-6. `/Game/Castle/Props/Throne` → `Throne.fbx`
-7. `/Game/Castle/Props/Table_Large` → `Table_Large.fbx`
-8. `/Game/Castle/Props/Banner_Red` → `Banner_Red.fbx`
-9. `/Game/Castle/Props/Banner_Blue` → `Banner_Blue.fbx`
-10. `/Game/Castle/Props/Barrel` → `Barrel.fbx`
+1. `/Game/Castle/Props/Banner_Red` → `Banner_Red.fbx`
+2. `/Game/Castle/Props/Banner_Blue` → `Banner_Blue.fbx`
+3. `/Game/Castle/Props/Barrel` → `Barrel.fbx`
+4. `/Game/Castle/Props/Chest_Gold` → `Chest_Gold.fbx`
+5. `/Game/Castle/Architecture/Floor_400x400` → `Floor_400x400.fbx`
+6. `/Game/Castle/Architecture/Gate_Large` → `Gate_Large.fbx`
+7. `/Game/Castle/Architecture/Pillar_Stone` → `Pillar_Stone.fbx`
+8. `/Game/Castle/Architecture/Stair_Stone` → `Stair_Stone.fbx`
+9. `/Game/Castle/Props/Table_Large` → `Table_Large.fbx`
+10. `/Game/Castle/Props/Throne` → `Throne.fbx`
 
 ... and 3 more assets (see manifest)
 
@@ -73,8 +73,8 @@ You'll need to:
 
 ## Actor Type Summary
 
-- **StaticMeshActor**: 181 instance(s)
 - **PointLight**: 16 instance(s)
+- **StaticMeshActor**: 181 instance(s)
 
 ---
 

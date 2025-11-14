@@ -12,6 +12,7 @@ Usage:
 
 import json
 import math
+import hashlib
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from datetime import datetime
@@ -25,6 +26,63 @@ class VerseSpawnGenerator:
     def __init__(self):
         """Initialize the spawn generator"""
         pass
+
+    def _sort_actors_stable(self, actors: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Sort actors for deterministic export.
+
+        Ensures stable ordering across exports for clean Git diffs.
+
+        Sort key:
+            1. Actor class (group by type)
+            2. Actor name (alphabetical)
+            3. Location X, Y, Z (spatial order)
+
+        Args:
+            actors: List of actor dictionaries
+
+        Returns:
+            Sorted list of actors
+        """
+        def sort_key(actor):
+            return (
+                actor.get('class', 'ZZZ'),  # Class name (ZZZ ensures Unknown sorts last)
+                actor.get('name', ''),       # Actor name
+                actor.get('location', {}).get('x', 0.0),
+                actor.get('location', {}).get('y', 0.0),
+                actor.get('location', {}).get('z', 0.0)
+            )
+
+        return sorted(actors, key=sort_key)
+
+    def _generate_actor_id(self, actor: Dict[str, Any]) -> str:
+        """
+        Generate stable ID for actor.
+
+        ID is deterministic and survives small position tweaks (rounds to 10cm).
+        Useful for incremental exports and tracking actors across versions.
+
+        Args:
+            actor: Actor dictionary
+
+        Returns:
+            12-character hex ID (MD5 hash prefix)
+        """
+        class_name = actor.get('class', 'Unknown')
+        actor_name = actor.get('name', '')
+
+        # Round position to nearest 10cm to survive small tweaks
+        loc = actor.get('location', {})
+        x = round(loc.get('x', 0.0) / 10.0) * 10.0
+        y = round(loc.get('y', 0.0) / 10.0) * 10.0
+        z = round(loc.get('z', 0.0) / 10.0) * 10.0
+
+        # Create deterministic ID string
+        id_string = f"{class_name}_{actor_name}_{x}_{y}_{z}"
+
+        # Generate short hash (first 12 chars of MD5)
+        hash_obj = hashlib.md5(id_string.encode())
+        return hash_obj.hexdigest()[:12]
 
     def generate_spawn_code(
         self,
@@ -46,6 +104,9 @@ class VerseSpawnGenerator:
             Generated Verse code as string
         """
         options = options or {}
+
+        # Sort actors for deterministic output (clean Git diffs)
+        actors = self._sort_actors_stable(actors)
 
         # Build module name
         module_name = self._sanitize_name(level_name) + "_spawner"
@@ -294,11 +355,15 @@ class VerseSpawnGenerator:
         Returns:
             Asset manifest dictionary
         """
+        # Sort actors for deterministic output
+        actors = self._sort_actors_stable(actors)
+
         manifest = {
             'level_name': level_name,
             'export_date': datetime.now().isoformat(),
             'export_path': str(export_path),
             'total_actors': len(actors),
+            'actors': [],  # Add actors list with IDs
             'assets': [],
             'actor_types': {}
         }
@@ -309,6 +374,19 @@ class VerseSpawnGenerator:
         for actor in actors:
             actor_class = actor.get('class', 'Unknown')
             mesh_path = actor.get('static_mesh', '')
+
+            # Generate stable ID for actor
+            actor_id = self._generate_actor_id(actor)
+
+            # Add actor to manifest with ID
+            manifest['actors'].append({
+                'id': actor_id,
+                'name': actor.get('name', 'Unnamed'),
+                'class': actor_class,
+                'location': actor.get('location', {}),
+                'rotation': actor.get('rotation', {}),
+                'scale': actor.get('scale', {'x': 1.0, 'y': 1.0, 'z': 1.0})
+            })
 
             if mesh_path and mesh_path not in asset_map:
                 asset_map[mesh_path] = {

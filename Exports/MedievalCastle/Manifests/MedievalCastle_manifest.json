@@ -1,58 +1,3951 @@
 {
   "level_name": "MedievalCastle",
-  "export_date": "2025-11-13T18:59:47.264683",
+  "export_date": "2025-11-13T19:10:22.016057",
   "export_path": "Exports/MedievalCastle",
   "total_actors": 197,
+  "actors": [
+    {
+      "id": "1b80bee125dd",
+      "name": "Light_North_1",
+      "class": "PointLight",
+      "location": {
+        "x": 400.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "5ed692269d26",
+      "name": "Light_North_2",
+      "class": "PointLight",
+      "location": {
+        "x": 800.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "507ed1ee544e",
+      "name": "Light_North_3",
+      "class": "PointLight",
+      "location": {
+        "x": 1200.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "622013758e2b",
+      "name": "Light_North_4",
+      "class": "PointLight",
+      "location": {
+        "x": 1600.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "3ce9da7dee7b",
+      "name": "Light_North_5",
+      "class": "PointLight",
+      "location": {
+        "x": 2000.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0e9053ff4f0a",
+      "name": "Light_North_6",
+      "class": "PointLight",
+      "location": {
+        "x": 2400.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d5324ece64b9",
+      "name": "Light_North_7",
+      "class": "PointLight",
+      "location": {
+        "x": 2800.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "da7d00fbd4b5",
+      "name": "Light_North_8",
+      "class": "PointLight",
+      "location": {
+        "x": 3200.0,
+        "y": 100.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "195a3d5a08ff",
+      "name": "Light_South_1",
+      "class": "PointLight",
+      "location": {
+        "x": 400.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "f23319edf7c3",
+      "name": "Light_South_2",
+      "class": "PointLight",
+      "location": {
+        "x": 800.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "df28c6d14820",
+      "name": "Light_South_3",
+      "class": "PointLight",
+      "location": {
+        "x": 1200.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "16ebbf3383dd",
+      "name": "Light_South_4",
+      "class": "PointLight",
+      "location": {
+        "x": 1600.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "bfa0f1bdf847",
+      "name": "Light_South_5",
+      "class": "PointLight",
+      "location": {
+        "x": 2000.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "515926a2a0d9",
+      "name": "Light_South_6",
+      "class": "PointLight",
+      "location": {
+        "x": 2400.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "532777190c22",
+      "name": "Light_South_7",
+      "class": "PointLight",
+      "location": {
+        "x": 2800.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "19b8cbd2afc0",
+      "name": "Light_South_8",
+      "class": "PointLight",
+      "location": {
+        "x": 3200.0,
+        "y": 3900.0,
+        "z": 220.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c3a33009c4fe",
+      "name": "Banner_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1000.0,
+        "y": 200.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "83546fe9411a",
+      "name": "Banner_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3000.0,
+        "y": 200.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d45e72a044b2",
+      "name": "Barrel_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 500.0,
+        "y": 500.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 45.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "de9810c0c00f",
+      "name": "Barrel_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3500.0,
+        "y": 500.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 135.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "01ffa0077b29",
+      "name": "Chest_Treasure",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3500.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "395c5d8ae51b",
+      "name": "Floor_0_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "22d5220c2615",
+      "name": "Floor_0_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a5b65bc1d9a1",
+      "name": "Floor_0_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b6154a6930dd",
+      "name": "Floor_0_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7d407a077856",
+      "name": "Floor_0_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c1c872a7a6e2",
+      "name": "Floor_0_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "4ab34b8bacfd",
+      "name": "Floor_0_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "21e2694a2011",
+      "name": "Floor_0_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8eee588e1fc9",
+      "name": "Floor_0_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "61a46c329c8c",
+      "name": "Floor_0_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "51bceeafbc10",
+      "name": "Floor_1_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a31e075a3a86",
+      "name": "Floor_1_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7b7a4048fd39",
+      "name": "Floor_1_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "93397da0990a",
+      "name": "Floor_1_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c224de0c1988",
+      "name": "Floor_1_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0d9d7c1acedc",
+      "name": "Floor_1_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "74f3ac510465",
+      "name": "Floor_1_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "db974e0a41fc",
+      "name": "Floor_1_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "addc82b02797",
+      "name": "Floor_1_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a0a716b075f5",
+      "name": "Floor_1_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "939247560090",
+      "name": "Floor_2_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "1b3d891fc52e",
+      "name": "Floor_2_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0e6ea3877324",
+      "name": "Floor_2_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "1b6926889304",
+      "name": "Floor_2_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "5074e474a651",
+      "name": "Floor_2_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "bbd569c6b56f",
+      "name": "Floor_2_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "dbd8a1066e82",
+      "name": "Floor_2_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "38d1e5fa553c",
+      "name": "Floor_2_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6ddabb3a55c4",
+      "name": "Floor_2_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "afacd73bdb37",
+      "name": "Floor_2_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d1fcb33ed233",
+      "name": "Floor_3_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "94065b364aa6",
+      "name": "Floor_3_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b717a402f186",
+      "name": "Floor_3_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "5db2c97eb0e0",
+      "name": "Floor_3_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "e11e3065f0d5",
+      "name": "Floor_3_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7ee050bbeefd",
+      "name": "Floor_3_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "693217c53e70",
+      "name": "Floor_3_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6074f08e1f88",
+      "name": "Floor_3_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "42c2fe6a06db",
+      "name": "Floor_3_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "be52a0b88b02",
+      "name": "Floor_3_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a452146771a4",
+      "name": "Floor_4_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "dfb28cace3fa",
+      "name": "Floor_4_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c19a5c79a6d7",
+      "name": "Floor_4_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "348f6d4e5d79",
+      "name": "Floor_4_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "77ec68688894",
+      "name": "Floor_4_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a80bc6b1a25f",
+      "name": "Floor_4_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "35dd42de056c",
+      "name": "Floor_4_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6a6fc3bdfe9d",
+      "name": "Floor_4_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "172fce9b079e",
+      "name": "Floor_4_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "f99644f97940",
+      "name": "Floor_4_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "808d262fecd4",
+      "name": "Floor_5_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "403320082be7",
+      "name": "Floor_5_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "64081c87f122",
+      "name": "Floor_5_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "f2c2b03d1378",
+      "name": "Floor_5_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a04fd7713e61",
+      "name": "Floor_5_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "32a948f7c7cf",
+      "name": "Floor_5_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d9ebd069b8a7",
+      "name": "Floor_5_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "f4460a1cfc85",
+      "name": "Floor_5_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b5eb8d1965ce",
+      "name": "Floor_5_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "77508f767c16",
+      "name": "Floor_5_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "fe6943cd1906",
+      "name": "Floor_6_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b001915a69b8",
+      "name": "Floor_6_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8757313f9886",
+      "name": "Floor_6_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "04f7002e297f",
+      "name": "Floor_6_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7f2ac5fd974e",
+      "name": "Floor_6_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "14b94366272a",
+      "name": "Floor_6_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "775e9f1dabcf",
+      "name": "Floor_6_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d5150e7a6f70",
+      "name": "Floor_6_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "788734748d88",
+      "name": "Floor_6_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "66dfc0a862e3",
+      "name": "Floor_6_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "93165bc6ea94",
+      "name": "Floor_7_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "4558a849a42b",
+      "name": "Floor_7_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "361f86d18d80",
+      "name": "Floor_7_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6aacd563b7d2",
+      "name": "Floor_7_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "71c17cf9052e",
+      "name": "Floor_7_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "aa7104c2fbad",
+      "name": "Floor_7_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "47388ee5fe42",
+      "name": "Floor_7_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7fde90867c5c",
+      "name": "Floor_7_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ecc32e65f245",
+      "name": "Floor_7_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "e50fa3d8020a",
+      "name": "Floor_7_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "f0a4d1d998e0",
+      "name": "Floor_8_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "768ab2204c23",
+      "name": "Floor_8_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "517bf1afd064",
+      "name": "Floor_8_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "3d42804f3862",
+      "name": "Floor_8_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "3dcbfdd2002f",
+      "name": "Floor_8_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "954389fd7c2e",
+      "name": "Floor_8_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "eb3c205fca81",
+      "name": "Floor_8_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "58a37d23fff8",
+      "name": "Floor_8_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "679a29d559f3",
+      "name": "Floor_8_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "2152809becfc",
+      "name": "Floor_8_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "eb4cf2771716",
+      "name": "Floor_9_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c3cebdafa045",
+      "name": "Floor_9_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b28dd30798d4",
+      "name": "Floor_9_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "e1c98d9268d2",
+      "name": "Floor_9_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0949797b117f",
+      "name": "Floor_9_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6e0664192c0f",
+      "name": "Floor_9_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "97cb7b7bb30c",
+      "name": "Floor_9_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "20b8089892fe",
+      "name": "Floor_9_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b9e7b309b5e8",
+      "name": "Floor_9_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8f76286f3049",
+      "name": "Floor_9_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "22b525787c92",
+      "name": "Gate_Main",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "3cf349060539",
+      "name": "Pillar_0_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "a04346191fa6",
+      "name": "Pillar_0_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "b73e0f02828b",
+      "name": "Pillar_0_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "13896b3f3c66",
+      "name": "Pillar_1_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "8b6f2cb224c4",
+      "name": "Pillar_1_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "381ffe721589",
+      "name": "Pillar_1_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "6707ebb7656b",
+      "name": "Pillar_2_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "84f6f5568c18",
+      "name": "Pillar_2_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "012bc8af11f6",
+      "name": "Pillar_2_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.5
+      }
+    },
+    {
+      "id": "10bfd0d04bee",
+      "name": "Stair_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "46620f01fada",
+      "name": "Stair_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3250.0,
+        "z": 20.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a10f7cbd6f57",
+      "name": "Stair_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3300.0,
+        "z": 40.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "cc64b43ff1fa",
+      "name": "Stair_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3350.0,
+        "z": 60.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "687e2df42edc",
+      "name": "Stair_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3400.0,
+        "z": 80.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "2df89f195b2e",
+      "name": "Table_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1500.0,
+        "y": 2000.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ddb1a1d74353",
+      "name": "Table_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2500.0,
+        "y": 2000.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d4445390db3a",
+      "name": "Throne",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3800.0,
+        "z": 50.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "63446964d3b9",
+      "name": "Torch_North_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "e87751961564",
+      "name": "Torch_North_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "9b84c9beb9cf",
+      "name": "Torch_North_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "663544cd6f52",
+      "name": "Torch_North_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7c505aa0ebd1",
+      "name": "Torch_North_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "4eb6f274d847",
+      "name": "Torch_North_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d2b06e131c6e",
+      "name": "Torch_North_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "05a67f4f6be5",
+      "name": "Torch_North_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 100.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "98954b5b1255",
+      "name": "Torch_South_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a38d462f8946",
+      "name": "Torch_South_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "a900fef83419",
+      "name": "Torch_South_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "9f6445c1a39b",
+      "name": "Torch_South_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "5da2f6753b54",
+      "name": "Torch_South_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "9df07dce0d4e",
+      "name": "Torch_South_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "4ae422ac950a",
+      "name": "Torch_South_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "9107edf50051",
+      "name": "Torch_South_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 3900.0,
+        "z": 200.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6ab38e7b1c87",
+      "name": "Tower_NorthEast",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.5,
+        "y": 1.5,
+        "z": 2.0
+      }
+    },
+    {
+      "id": "1aeeb3788585",
+      "name": "Tower_NorthWest",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.5,
+        "y": 1.5,
+        "z": 2.0
+      }
+    },
+    {
+      "id": "4b555401e513",
+      "name": "Tower_SouthEast",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.5,
+        "y": 1.5,
+        "z": 2.0
+      }
+    },
+    {
+      "id": "ae64d86e1919",
+      "name": "Tower_SouthWest",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.5,
+        "y": 1.5,
+        "z": 2.0
+      }
+    },
+    {
+      "id": "1d6d905e099a",
+      "name": "Wall_East_21",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "705cb52a086b",
+      "name": "Wall_East_23",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "9110fa2b9871",
+      "name": "Wall_East_25",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "247e4d7d5e34",
+      "name": "Wall_East_27",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7d843947257e",
+      "name": "Wall_East_29",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ab650f489b15",
+      "name": "Wall_East_31",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0d78e96baa86",
+      "name": "Wall_East_33",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "798d48512b6e",
+      "name": "Wall_East_35",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8641da9b84d9",
+      "name": "Wall_East_37",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 4000.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 90.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "368056919995",
+      "name": "Wall_North_0",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "2328f52356e1",
+      "name": "Wall_North_10",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ef68fefbce5c",
+      "name": "Wall_North_12",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7aa897b70271",
+      "name": "Wall_North_14",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "4bd67f5a39a9",
+      "name": "Wall_North_16",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0d57eebb480b",
+      "name": "Wall_North_18",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "c043bb2682d6",
+      "name": "Wall_North_2",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8e8f2553a74d",
+      "name": "Wall_North_4",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b9bf4c71b2fe",
+      "name": "Wall_North_6",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "28f20280e998",
+      "name": "Wall_North_8",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "b892020a5df8",
+      "name": "Wall_South_1",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "7c21f389640b",
+      "name": "Wall_South_11",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2000.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "74e3df643034",
+      "name": "Wall_South_13",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2400.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "8f73c96b200b",
+      "name": "Wall_South_15",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 2800.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d7cb70bc84b1",
+      "name": "Wall_South_17",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3200.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "2c97561c8ac0",
+      "name": "Wall_South_19",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 3600.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "bc987ea95f9d",
+      "name": "Wall_South_3",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 400.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "3ca576e92a6f",
+      "name": "Wall_South_5",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 800.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ffe38b55a0dd",
+      "name": "Wall_South_7",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1200.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d05618afdddc",
+      "name": "Wall_South_9",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 1600.0,
+        "y": 4000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 180.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "d06f03768eb2",
+      "name": "Wall_West_20",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0c9758ba98d4",
+      "name": "Wall_West_22",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "cae6e923a8d0",
+      "name": "Wall_West_24",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 1200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "56ea1074fa63",
+      "name": "Wall_West_26",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 1600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "6744a849cc73",
+      "name": "Wall_West_28",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2000.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "af14de9b2fcb",
+      "name": "Wall_West_30",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2400.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "0914f5c891b7",
+      "name": "Wall_West_32",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 2800.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "ac0e3164a52d",
+      "name": "Wall_West_34",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 3200.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "id": "005eb1e5af37",
+      "name": "Wall_West_36",
+      "class": "StaticMeshActor",
+      "location": {
+        "x": 0.0,
+        "y": 3600.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 270.0,
+        "roll": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    }
+  ],
   "assets": [
-    {
-      "ue5_path": "/Game/Castle/Architecture/Floor_400x400",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Floor_400x400",
-      "type": "StaticMesh",
-      "export_file": "Floor_400x400.fbx",
-      "references": 100
-    },
-    {
-      "ue5_path": "/Game/Castle/Architecture/Wall_400x400",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Wall_400x400",
-      "type": "StaticMesh",
-      "export_file": "Wall_400x400.fbx",
-      "references": 38
-    },
-    {
-      "ue5_path": "/Game/Castle/Architecture/Tower_Round",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Tower_Round",
-      "type": "StaticMesh",
-      "export_file": "Tower_Round.fbx",
-      "references": 4
-    },
-    {
-      "ue5_path": "/Game/Castle/Architecture/Gate_Large",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Gate_Large",
-      "type": "StaticMesh",
-      "export_file": "Gate_Large.fbx",
-      "references": 1
-    },
-    {
-      "ue5_path": "/Game/Castle/Architecture/Pillar_Stone",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Pillar_Stone",
-      "type": "StaticMesh",
-      "export_file": "Pillar_Stone.fbx",
-      "references": 9
-    },
-    {
-      "ue5_path": "/Game/Castle/Props/Throne",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Throne",
-      "type": "StaticMesh",
-      "export_file": "Throne.fbx",
-      "references": 1
-    },
-    {
-      "ue5_path": "/Game/Castle/Props/Table_Large",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Table_Large",
-      "type": "StaticMesh",
-      "export_file": "Table_Large.fbx",
-      "references": 2
-    },
     {
       "ue5_path": "/Game/Castle/Props/Banner_Red",
       "uefn_path": "/Game/ImportedAssets/MedievalCastle/Banner_Red",
@@ -82,11 +3975,25 @@
       "references": 1
     },
     {
-      "ue5_path": "/Game/Castle/Props/Torch_Wall",
-      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Torch_Wall",
+      "ue5_path": "/Game/Castle/Architecture/Floor_400x400",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Floor_400x400",
       "type": "StaticMesh",
-      "export_file": "Torch_Wall.fbx",
-      "references": 16
+      "export_file": "Floor_400x400.fbx",
+      "references": 100
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Gate_Large",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Gate_Large",
+      "type": "StaticMesh",
+      "export_file": "Gate_Large.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Pillar_Stone",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Pillar_Stone",
+      "type": "StaticMesh",
+      "export_file": "Pillar_Stone.fbx",
+      "references": 9
     },
     {
       "ue5_path": "/Game/Castle/Architecture/Stair_Stone",
@@ -94,10 +4001,45 @@
       "type": "StaticMesh",
       "export_file": "Stair_Stone.fbx",
       "references": 5
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Table_Large",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Table_Large",
+      "type": "StaticMesh",
+      "export_file": "Table_Large.fbx",
+      "references": 2
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Throne",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Throne",
+      "type": "StaticMesh",
+      "export_file": "Throne.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Torch_Wall",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Torch_Wall",
+      "type": "StaticMesh",
+      "export_file": "Torch_Wall.fbx",
+      "references": 16
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Tower_Round",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Tower_Round",
+      "type": "StaticMesh",
+      "export_file": "Tower_Round.fbx",
+      "references": 4
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Wall_400x400",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Wall_400x400",
+      "type": "StaticMesh",
+      "export_file": "Wall_400x400.fbx",
+      "references": 38
     }
   ],
   "actor_types": {
-    "StaticMeshActor": 181,
-    "PointLight": 16
+    "PointLight": 16,
+    "StaticMeshActor": 181
   }
 }
