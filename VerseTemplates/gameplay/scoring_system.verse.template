@@ -1,0 +1,150 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Fortnite.com/Game }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Scoring System
+# Manages player/team scores with win conditions
+# Generated: {{TIMESTAMP}}
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    ScoreManager<private>: score_manager_device = score_manager_device{}
+
+    @editable
+    WinningScore<private>:int = {{WINNING_SCORE}}
+
+    @editable
+    ScoreDisplay<private>: hud_message_device = hud_message_device{}
+
+    var PlayerScores<private>: [agent]int = map{}
+    var TeamScores<private>: [int]int = map{}
+
+    var IsGameActive<private>:logic = false
+
+    OnBegin<override>()<suspends>:void=
+        set IsGameActive = true
+        Print("Scoring system initialized - Win at {WinningScore} points")
+
+    # Add score to player
+    AddScore(Agent:agent, Points:int):void=
+        CurrentScore := if (Score := PlayerScores[Agent]?) then Score else 0
+        NewScore := CurrentScore + Points
+
+        set PlayerScores[Agent] = NewScore
+
+        Print("{Agent} scored {Points} points (Total: {NewScore})")
+
+        {{#IF_TEAM_SCORING}}
+        # Also update team score
+        if (TeamID := GetTeamID(Agent), TeamID >= 0):
+            AddTeamScore(TeamID, Points)
+        {{/IF_TEAM_SCORING}}
+
+        # Check win condition
+        if (NewScore >= WinningScore):
+            OnPlayerWins(Agent)
+
+        # Update display
+        UpdateScoreDisplay(Agent, NewScore)
+
+    # Subtract score from player
+    SubtractScore(Agent:agent, Points:int):void=
+        AddScore(Agent, Points * -1)
+
+    # Get player's current score
+    GetScore(Agent:agent):int=
+        if (Score := PlayerScores[Agent]?):
+            return Score
+        return 0
+
+    {{#IF_TEAM_SCORING}}
+    # Add score to team
+    AddTeamScore(TeamID:int, Points:int):void=
+        CurrentScore := if (Score := TeamScores[TeamID]?) then Score else 0
+        NewScore := CurrentScore + Points
+
+        set TeamScores[TeamID] = NewScore
+
+        Print("Team {TeamID} scored {Points} points (Total: {NewScore})")
+
+        # Check team win condition
+        if (NewScore >= WinningScore):
+            OnTeamWins(TeamID)
+
+    # Get team's current score
+    GetTeamScore(TeamID:int):int=
+        if (Score := TeamScores[TeamID]?):
+            return Score
+        return 0
+    {{/IF_TEAM_SCORING}}
+
+    # Handle player win
+    OnPlayerWins(Agent:agent):void=
+        set IsGameActive = false
+        Print("{Agent} WINS with {GetScore(Agent)} points!")
+
+        {{CUSTOM_WIN_LOGIC}}
+
+        # End game or round
+        # EndGameDevice.Activate()
+
+    {{#IF_TEAM_SCORING}}
+    # Handle team win
+    OnTeamWins(TeamID:int):void=
+        set IsGameActive = false
+        Print("Team {TeamID} WINS with {GetTeamScore(TeamID)} points!")
+
+        {{CUSTOM_TEAM_WIN_LOGIC}}
+    {{/IF_TEAM_SCORING}}
+
+    # Update HUD score display
+    UpdateScoreDisplay(Agent:agent, Score:int):void=
+        # ScoreDisplay.SetText("{Agent}: {Score} points")
+        # ScoreDisplay.Show(Agent)
+        pass
+
+    # Reset all scores
+    ResetScores():void=
+        set PlayerScores = map{}
+        {{#IF_TEAM_SCORING}}
+        set TeamScores = map{}
+        {{/IF_TEAM_SCORING}}
+        set IsGameActive = true
+        Print("Scores reset")
+
+    # Get top scoring player
+    GetTopPlayer():?agent=
+        var TopAgent:?agent = false
+        var TopScore:int = 0
+
+        for (Entry : PlayerScores):
+            Agent := Entry(0)
+            Score := Entry(1)
+            if (Score > TopScore):
+                set TopAgent = option{Agent}
+                set TopScore = Score
+
+        return TopAgent
+
+    {{#IF_LEADERBOARD}}
+    # Get sorted leaderboard
+    GetLeaderboard():[]tuple(agent, int)=
+        var Leaderboard:[]tuple(agent, int) = array{}
+
+        for (Entry : PlayerScores):
+            set Leaderboard += array{(Entry(0), Entry(1))}
+
+        # Sort by score (descending)
+        # return SortLeaderboard(Leaderboard)
+
+        return Leaderboard
+    {{/IF_LEADERBOARD}}
+
+    # Helper: Get team ID for agent
+    GetTeamID(Agent:agent):int=
+        if (FortChar := Agent.GetFortCharacter[], Team := FortChar.GetTeam[]):
+            return Team.GetTeamIndex()
+        return -1

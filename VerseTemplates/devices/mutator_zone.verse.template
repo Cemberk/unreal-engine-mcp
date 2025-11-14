@@ -1,0 +1,35 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Mutator Zone Device
+# Applies effects/modifiers to players in area
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    MutatorZone<private>: mutator_zone_device = mutator_zone_device{}
+
+    var PlayersInZone<private>: [agent]logic = map{}
+
+    OnBegin<override>()<suspends>:void=
+        MutatorZone.AgentEntersEvent.Subscribe(OnAgentEnters)
+        MutatorZone.AgentExitsEvent.Subscribe(OnAgentExits)
+
+    OnAgentEnters(Agent:agent):void=
+        set PlayersInZone[Agent] = true
+        ApplyZoneEffects(Agent)
+        Print("{Agent} entered mutator zone")
+
+    OnAgentExits(Agent:agent):void=
+        if (set PlayersInZone[Agent] = false):
+            RemoveZoneEffects(Agent)
+            Print("{Agent} exited mutator zone")
+
+    ApplyZoneEffects(Agent:agent):void=
+        {{CUSTOM_ENTER_EFFECTS}}
+        # Example: Increase speed, grant shield, etc.
+
+    RemoveZoneEffects(Agent:agent):void=
+        {{CUSTOM_EXIT_EFFECTS}}
+        # Example: Remove speed boost, etc.

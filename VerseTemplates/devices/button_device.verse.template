@@ -1,0 +1,82 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+
+# {{DESCRIPTION}}
+# Template: Button Device Handler
+# Generated: {{TIMESTAMP}}
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    {{BUTTON_NAME}}: button_device = button_device{}
+
+    {{#IF_MULTIPLE_BUTTONS}}
+    @editable
+    AdditionalButtons<private>: []button_device = array{}
+    {{/IF_MULTIPLE_BUTTONS}}
+
+    # Called when the device is started in a running game
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to button interaction events
+        {{BUTTON_NAME}}.InteractedWithEvent.Subscribe(OnButtonPressed)
+
+        {{#IF_MULTIPLE_BUTTONS}}
+        # Subscribe to additional buttons
+        for (Button : AdditionalButtons):
+            Button.InteractedWithEvent.Subscribe(OnButtonPressed)
+        {{/IF_MULTIPLE_BUTTONS}}
+
+        Print("{{MODULE_NAME}} initialized")
+
+    # Handles button press events
+    OnButtonPressed(Agent:agent):void=
+        Print("{Agent} pressed the button")
+
+        {{CUSTOM_LOGIC}}
+
+        # Example: Trigger additional logic
+        # PerformAction(Agent)
+
+    {{#IF_COOLDOWN}}
+    # Cooldown tracking
+    var LastPressTime<private>:float = 0.0
+    var CooldownDuration<private>:float = {{COOLDOWN_SECONDS}}
+
+    OnButtonPressedWithCooldown(Agent:agent):void=
+        CurrentTime := GetSimulationElapsedTime()
+        if (CurrentTime - LastPressTime > CooldownDuration):
+            set LastPressTime = CurrentTime
+            OnButtonPressed(Agent)
+        else:
+            Print("Button on cooldown")
+    {{/IF_COOLDOWN}}
+
+    {{#IF_USE_COUNT}}
+    # Use count tracking
+    var UsesRemaining<private>:int = {{MAX_USES}}
+
+    OnButtonPressedLimited(Agent:agent):void=
+        if (UsesRemaining > 0):
+            set UsesRemaining = UsesRemaining - 1
+            OnButtonPressed(Agent)
+
+            if (UsesRemaining = 0):
+                {{BUTTON_NAME}}.Disable()
+                Print("Button disabled - max uses reached")
+    {{/IF_USE_COUNT}}
+
+    {{#IF_TEAM_SPECIFIC}}
+    # Team-specific button handler
+    OnButtonPressedTeamCheck(Agent:agent):void=
+        if (TeamID := GetTeamID(Agent), TeamID = {{ALLOWED_TEAM}}):
+            OnButtonPressed(Agent)
+        else:
+            Print("Wrong team - access denied")
+    {{/IF_TEAM_SPECIFIC}}
+
+    # Helper: Get team ID for agent
+    GetTeamID(Agent:agent):int=
+        if (FortChar := Agent.GetFortCharacter[], Team := FortChar.GetTeam[]):
+            return Team.GetTeamIndex()
+        return -1

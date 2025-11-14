@@ -1,0 +1,169 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/UI }
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+
+# {{DESCRIPTION}}
+# Template: UI/HUD Helper Functions
+# Common UI and HUD manipulation utilities
+
+# Show message to specific player
+ShowMessageToPlayer<public>(Agent:agent, Message:string, HUDDevice:hud_message_device):void=
+    # HUDDevice.SetText(Message)
+    # HUDDevice.Show(Agent)
+    Print("Message to {Agent}: {Message}")
+
+# Show message to all players
+ShowMessageToAll<public>(Message:string, HUDDevice:hud_message_device):void=
+    # HUDDevice.SetText(Message)
+    # HUDDevice.ShowAll()
+    Print("Broadcast: {Message}")
+
+# Hide HUD for player
+HideHUDForPlayer<public>(Agent:agent, HUDDevice:hud_message_device):void=
+    # HUDDevice.Hide(Agent)
+    pass
+
+# Create formatted message with variables
+FormatMessage<public>(Template:string, Value:int):string=
+    # Simple placeholder replacement
+    # More complex formatting would require string manipulation API
+    return "{Template}: {Value}"
+
+# Format time in MM:SS
+FormatTime<public>(Seconds:float):string=
+    TotalSeconds := Floor(Seconds)
+    Minutes := TotalSeconds / 60
+    RemainingSeconds := TotalSeconds mod 60
+
+    MinStr := if (Minutes < 10) then "0{Minutes}" else "{Minutes}"
+    SecStr := if (RemainingSeconds < 10) then "0{RemainingSeconds}" else "{RemainingSeconds}"
+
+    return "{MinStr}:{SecStr}"
+
+# Format score with leading zeros
+FormatScore<public>(Score:int, Digits:int):string=
+    # Pad score with zeros
+    ScoreStr := "{Score}"
+    # Would need string padding logic
+    return ScoreStr
+
+# Display countdown timer
+ShowCountdown<public>(Seconds:int, HUDDevice:hud_message_device)<suspends>:void=
+    for (I := Seconds..1):
+        ShowMessageToAll("{I}...", HUDDevice)
+        Sleep(1.0)
+    ShowMessageToAll("GO!", HUDDevice)
+    Sleep(1.0)
+    # HUDDevice.HideAll()
+
+# Show player score on HUD
+UpdatePlayerScore<public>(Agent:agent, Score:int, HUDDevice:hud_message_device):void=
+    Message := FormatMessage("Score", Score)
+    ShowMessageToPlayer(Agent, Message, HUDDevice)
+
+# Show team score on HUD
+UpdateTeamScore<public>(TeamID:int, Score:int, HUDDevice:hud_message_device):void=
+    Message := "Team {TeamID}: {Score} points"
+    ShowMessageToAll(Message, HUDDevice)
+
+# Show leaderboard
+ShowLeaderboard<public>(Scores:[]tuple(string, int), HUDDevice:hud_message_device):void=
+    var LeaderboardText:string = "LEADERBOARD\n"
+
+    for (Index -> Entry : Scores):
+        PlayerName := Entry(0)
+        Score := Entry(1)
+        set LeaderboardText = "{LeaderboardText}\n{Index + 1}. {PlayerName}: {Score}"
+
+    ShowMessageToAll(LeaderboardText, HUDDevice)
+
+# Show progress bar (using text)
+ShowProgressBar<public>(Progress:float, BarLength:int):string=
+    FilledLength := Floor(Progress * Float[BarLength])
+    var Bar:string = "["
+
+    for (I := 0..BarLength - 1):
+        if (I < FilledLength):
+            set Bar = "{Bar}■"
+        else:
+            set Bar = "{Bar}□"
+
+    set Bar = "{Bar}] {Floor(Progress * 100.0)}%"
+    return Bar
+
+# Show notification to player
+ShowNotification<public>(Agent:agent, Title:string, Message:string):void=
+    Print("{Agent} - {Title}: {Message}")
+    # Actual implementation would use notification device
+
+# Show elimination feed message
+ShowEliminationMessage<public>(Eliminator:agent, Victim:agent, EliminationFeed:elimination_feed_device):void=
+    # EliminationFeed.Activate(Eliminator, Victim)
+    Print("{Eliminator} eliminated {Victim}")
+
+# Flash HUD message (show briefly)
+FlashMessage<public>(Message:string, Duration:float, HUDDevice:hud_message_device)<suspends>:void=
+    ShowMessageToAll(Message, HUDDevice)
+    Sleep(Duration)
+    # HUDDevice.HideAll()
+
+# Show objective marker
+ShowObjectiveMarker<public>(Location:vector3, MarkerDevice:player_tracker_device):void=
+    # MarkerDevice.SetLocation(Location)
+    # MarkerDevice.Enable()
+    pass
+
+# Create percentage string
+FormatPercentage<public>(Value:float, Total:float):string=
+    if (Total = 0.0):
+        return "0%"
+    Percentage := (Value / Total) * 100.0
+    return "{Floor(Percentage)}%"
+
+# Format large numbers with commas
+FormatNumber<public>(Number:int):string=
+    # Simple version - just return number
+    # Full implementation would add commas for thousands
+    return "{Number}"
+
+# Show round transition screen
+ShowRoundTransition<public>(RoundNumber:int, HUDDevice:hud_message_device)<suspends>:void=
+    ShowMessageToAll("ROUND {RoundNumber}", HUDDevice)
+    Sleep(2.0)
+    ShowMessageToAll("Starting in...", HUDDevice)
+    Sleep(1.0)
+    ShowCountdown(3, HUDDevice)
+
+# Show game over screen
+ShowGameOver<public>(Winner:string, HUDDevice:hud_message_device)<suspends>:void=
+    ShowMessageToAll("GAME OVER", HUDDevice)
+    Sleep(2.0)
+    ShowMessageToAll("{Winner} WINS!", HUDDevice)
+    Sleep(5.0)
+
+# Show victory screen for player
+ShowVictoryScreen<public>(Agent:agent, HUDDevice:hud_message_device)<suspends>:void=
+    ShowMessageToPlayer(Agent, "VICTORY!", HUDDevice)
+    Sleep(3.0)
+
+# Show defeat screen for player
+ShowDefeatScreen<public>(Agent:agent, HUDDevice:hud_message_device)<suspends>:void=
+    ShowMessageToPlayer(Agent, "DEFEAT", HUDDevice)
+    Sleep(3.0)
+
+# Update timer display
+UpdateTimerDisplay<public>(RemainingTime:float, HUDDevice:hud_message_device):void=
+    TimeString := FormatTime(RemainingTime)
+    ShowMessageToAll("Time: {TimeString}", HUDDevice)
+
+# Show kill feed
+ShowKillFeed<public>(Killer:string, Victim:string, Weapon:string):void=
+    Print("KILL FEED: {Killer} [{Weapon}] {Victim}")
+
+# Helper: Floor function
+Floor<private>(Value:float):int=
+    IntValue := Int[Value]
+    if (Float[IntValue] > Value):
+        return IntValue - 1
+    return IntValue

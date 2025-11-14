@@ -1,0 +1,99 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Wave-based Combat System
+# Spawns waves of enemies with increasing difficulty
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    EnemySpawners<private>: []creature_spawner_device = array{}
+
+    @editable
+    WaveTimer<private>: timer_device = timer_device{}
+
+    var CurrentWave<private>:int = 0
+    var EnemiesRemaining<private>:int = 0
+    var IsWaveActive<private>:logic = false
+
+    @editable
+    BaseEnemiesPerWave<private>:int = {{BASE_ENEMIES}}
+
+    @editable
+    EnemyIncreasePerWave<private>:int = {{ENEMY_INCREASE}}
+
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to spawner events
+        for (Spawner : EnemySpawners):
+            # Spawner.EnemyEliminatedEvent.Subscribe(OnEnemyEliminated)
+            pass
+
+        Print("Wave Combat System initialized")
+
+        {{#IF_AUTO_START}}
+        spawn{ StartNextWave() }
+        {{/IF_AUTO_START}}
+
+    # Start next wave
+    StartNextWave()<suspends>:void=
+        set CurrentWave = CurrentWave + 1
+        set IsWaveActive = true
+
+        # Calculate enemy count for this wave
+        EnemyCount := BaseEnemiesPerWave + (EnemyIncreasePerWave * (CurrentWave - 1))
+        set EnemiesRemaining = EnemyCount
+
+        Print("Wave {CurrentWave} starting - {EnemyCount} enemies incoming!")
+
+        # Countdown before wave
+        Sleep({{WAVE_START_DELAY}})
+
+        # Spawn enemies
+        SpawnWave(EnemyCount)
+
+    # Spawn wave of enemies
+    SpawnWave(EnemyCount:int)<suspends>:void=
+        for (Index := 0..EnemyCount - 1):
+            # Spawn enemy from random spawner
+            if (RandomSpawner := EnemySpawners[GetRandomInt(0, EnemySpawners.Length - 1)]):
+                # RandomSpawner.SpawnEnemy()
+                pass
+
+            # Delay between spawns
+            Sleep({{SPAWN_INTERVAL}})
+
+    # Handle enemy eliminated
+    OnEnemyEliminated(Agent:?agent):void=
+        set EnemiesRemaining = EnemiesRemaining - 1
+
+        Print("Enemy eliminated - {EnemiesRemaining} remaining")
+
+        if (EnemiesRemaining <= 0):
+            OnWaveCompleted()
+
+    # Wave completed
+    OnWaveCompleted():void=
+        set IsWaveActive = false
+
+        Print("Wave {CurrentWave} completed!")
+
+        {{CUSTOM_WAVE_COMPLETE}}
+
+        # Award points/rewards
+        # RewardPlayers()
+
+        # Start next wave after delay
+        spawn:
+            Sleep({{WAVE_INTERVAL}})
+            StartNextWave()
+
+    # Get enemies per wave
+    GetEnemiesForWave(WaveNumber:int):int=
+        return BaseEnemiesPerWave + (EnemyIncreasePerWave * (WaveNumber - 1))
+
+    # Reset wave system
+    ResetWaves():void=
+        set CurrentWave = 0
+        set IsWaveActive = false
+        set EnemiesRemaining = 0

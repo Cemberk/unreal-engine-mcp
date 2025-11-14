@@ -1,0 +1,54 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Conditional Button Device
+# Button with conditions (score, items, team, etc.)
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    ConditionalButton<private>: button_device = button_device{}
+
+    @editable
+    RequiredScore<private>:int = {{REQUIRED_SCORE}}
+
+    OnBegin<override>()<suspends>:void=
+        ConditionalButton.InteractedWithEvent.Subscribe(OnButtonPressed)
+
+    OnButtonPressed(Agent:agent):void=
+        if (CheckConditions(Agent)):
+            ExecuteButtonAction(Agent)
+        else:
+            Print("Conditions not met for {Agent}")
+
+    CheckConditions(Agent:agent)<decides>:void=
+        # {{CONDITION_TYPE}} condition check
+        {{#IF_SCORE_CONDITION}}
+        PlayerScore := GetPlayerScore(Agent)
+        PlayerScore >= RequiredScore
+        {{/IF_SCORE_CONDITION}}
+
+        {{#IF_ITEM_CONDITION}}
+        PlayerHasRequiredItem(Agent)
+        {{/IF_ITEM_CONDITION}}
+
+        {{#IF_TEAM_CONDITION}}
+        IsCorrectTeam(Agent)
+        {{/IF_TEAM_CONDITION}}
+
+    ExecuteButtonAction(Agent:agent):void=
+        Print("Executing action for {Agent}")
+        {{CUSTOM_ACTION}}
+
+    GetPlayerScore(Agent:agent):int=
+        # Implement score retrieval
+        return 0
+
+    PlayerHasRequiredItem(Agent:agent)<decides>:void=
+        # Implement item check
+        false
+
+    IsCorrectTeam(Agent:agent)<decides>:void=
+        # Implement team check
+        false

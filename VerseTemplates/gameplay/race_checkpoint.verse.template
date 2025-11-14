@@ -1,0 +1,102 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Race Checkpoint System
+# Manages race checkpoints and lap tracking
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    Checkpoints<private>: []trigger_device = array{}
+
+    var PlayerCheckpointProgress<private>: [agent]int = map{}
+    var PlayerLapTimes<private>: [agent][]float = map{}
+    var PlayerStartTime<private>: [agent]float = map{}
+
+    @editable
+    TotalLaps<private>:int = {{TOTAL_LAPS}}
+
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to all checkpoints
+        for (Index -> Checkpoint : Checkpoints):
+            Checkpoint.TriggeredEvent.Subscribe(MakeCheckpointHandler(Index))
+
+        Print("Race system initialized - {Checkpoints.Length} checkpoints, {TotalLaps} laps")
+
+    MakeCheckpointHandler(CheckpointIndex:int)<constructor>:agent -> void=
+        (Agent:agent):void=>
+            OnCheckpointReached(Agent, CheckpointIndex)
+
+    OnCheckpointReached(Agent:agent, CheckpointIndex:int):void=
+        CurrentProgress := if (Progress := PlayerCheckpointProgress[Agent]?) then Progress else 0
+
+        # Check if correct checkpoint
+        ExpectedCheckpoint := CurrentProgress mod Checkpoints.Length
+
+        if (CheckpointIndex = ExpectedCheckpoint):
+            # Correct checkpoint
+            set PlayerCheckpointProgress[Agent] = CurrentProgress + 1
+
+            Print("{Agent} reached checkpoint {CheckpointIndex + 1}")
+
+            # Check if lap completed
+            if (CheckpointIndex = Checkpoints.Length - 1):
+                OnLapCompleted(Agent)
+
+            # Check if race finished
+            CurrentLap := (CurrentProgress + 1) / Checkpoints.Length
+            if (CurrentLap >= TotalLaps):
+                OnRaceFinished(Agent)
+
+    OnLapCompleted(Agent:agent):void=
+        CurrentTime := GetSimulationElapsedTime()
+        StartTime := if (Time := PlayerStartTime[Agent]?) then Time else CurrentTime
+
+        LapTime := CurrentTime - StartTime
+
+        # Record lap time
+        var LapTimes:[]float = if (Times := PlayerLapTimes[Agent]?) then Times else array{}
+        set LapTimes += array{LapTime}
+        set PlayerLapTimes[Agent] = LapTimes
+
+        Print("{Agent} completed lap {LapTimes.Length} - Time: {LapTime}s")
+
+        # Reset start time for next lap
+        set PlayerStartTime[Agent] = CurrentTime
+
+    OnRaceFinished(Agent:agent):void=
+        TotalTime := if (Times := PlayerLapTimes[Agent]?):
+            var Total:float = 0.0
+            for (Time : Times):
+                set Total = Total + Time
+            Total
+        else:
+            0.0
+
+        Print("{Agent} FINISHED the race! Total time: {TotalTime}s")
+
+        {{CUSTOM_FINISH_LOGIC}}
+
+    # Start race for player
+    StartRace(Agent:agent):void=
+        set PlayerCheckpointProgress[Agent] = 0
+        set PlayerStartTime[Agent] = GetSimulationElapsedTime()
+        set PlayerLapTimes[Agent] = array{}
+
+        Print("{Agent} started the race")
+
+    # Get player's current lap
+    GetCurrentLap(Agent:agent):int=
+        Progress := if (P := PlayerCheckpointProgress[Agent]?) then P else 0
+        return Progress / Checkpoints.Length + 1
+
+    # Get player's best lap time
+    GetBestLapTime(Agent:agent):float=
+        if (Times := PlayerLapTimes[Agent]?):
+            var BestTime:float = Times[0]
+            for (Time : Times):
+                if (Time < BestTime):
+                    set BestTime = Time
+            return BestTime
+        return 0.0

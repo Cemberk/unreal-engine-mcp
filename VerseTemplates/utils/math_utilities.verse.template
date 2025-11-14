@@ -1,0 +1,221 @@
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/SpatialMath }
+
+# {{DESCRIPTION}}
+# Template: Math Utility Functions
+# Common mathematical operations and helpers
+
+# Clamp value between min and max
+Clamp<public>(Value:float, Min:float, Max:float):float=
+    if (Value < Min):
+        return Min
+    if (Value > Max):
+        return Max
+    return Value
+
+# Clamp integer value
+ClampInt<public>(Value:int, Min:int, Max:int):int=
+    if (Value < Min):
+        return Min
+    if (Value > Max):
+        return Max
+    return Value
+
+# Linear interpolation between two values
+Lerp<public>(A:float, B:float, Alpha:float):float=
+    return A + (B - A) * Alpha
+
+# Normalize value to 0-1 range
+Normalize<public>(Value:float, Min:float, Max:float):float=
+    if (Max = Min):
+        return 0.0
+    return (Value - Min) / (Max - Min)
+
+# Map value from one range to another
+MapRange<public>(Value:float, InMin:float, InMax:float, OutMin:float, OutMax:float):float=
+    Normalized := Normalize(Value, InMin, InMax)
+    return Lerp(OutMin, OutMax, Normalized)
+
+# Get distance between two 3D points
+Distance<public>(A:vector3, B:vector3):float=
+    DX := B.X - A.X
+    DY := B.Y - A.Y
+    DZ := B.Z - A.Z
+    return Sqrt(DX * DX + DY * DY + DZ * DZ)
+
+# Get 2D distance (ignoring Z)
+Distance2D<public>(A:vector3, B:vector3):float=
+    DX := B.X - A.X
+    DY := B.Y - A.Y
+    return Sqrt(DX * DX + DY * DY)
+
+# Normalize a vector
+NormalizeVector<public>(V:vector3):vector3=
+    Length := Sqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z)
+    if (Length > 0.0):
+        return vector3{
+            X := V.X / Length,
+            Y := V.Y / Length,
+            Z := V.Z / Length
+        }
+    return vector3{X:=0.0, Y:=0.0, Z:=0.0}
+
+# Dot product of two vectors
+DotProduct<public>(A:vector3, B:vector3):float=
+    return A.X * B.X + A.Y * B.Y + A.Z * B.Z
+
+# Get angle between two vectors (in degrees)
+AngleBetweenVectors<public>(A:vector3, B:vector3):float=
+    Dot := DotProduct(NormalizeVector(A), NormalizeVector(B))
+    ClampedDot := Clamp(Dot, -1.0, 1.0)
+    AngleRad := Acos(ClampedDot)
+    return RadiansToDegrees(AngleRad)
+
+# Convert radians to degrees
+RadiansToDegrees<public>(Radians:float):float=
+    return Radians * (180.0 / 3.14159265359)
+
+# Convert degrees to radians
+DegreesToRadians<public>(Degrees:float):float=
+    return Degrees * (3.14159265359 / 180.0)
+
+# Round to nearest integer
+Round<public>(Value:float):int=
+    if (Value >= 0.0):
+        return Floor(Value + 0.5)
+    return Floor(Value - 0.5)
+
+# Get absolute value
+Abs<public>(Value:float):float=
+    if (Value < 0.0):
+        return Value * -1.0
+    return Value
+
+# Get absolute value (int)
+AbsInt<public>(Value:int):int=
+    if (Value < 0):
+        return Value * -1
+    return Value
+
+# Get sign of value (-1, 0, or 1)
+Sign<public>(Value:float):int=
+    if (Value > 0.0):
+        return 1
+    if (Value < 0.0):
+        return -1
+    return 0
+
+# Check if value is approximately zero
+IsNearlyZero<public>(Value:float, Tolerance:float):logic=
+    return Abs(Value) <= Tolerance
+
+# Check if two floats are approximately equal
+IsNearlyEqual<public>(A:float, B:float, Tolerance:float):logic=
+    return Abs(A - B) <= Tolerance
+
+# Get random integer in range [Min, Max]
+GetRandomInt<public>(Min:int, Max:int):int=
+    if (Min >= Max):
+        return Min
+    Range := Max - Min + 1
+    # Note: Simplified random - actual implementation may vary
+    return Min + (GetSimulationTickCount() mod Range)
+
+# Get random float in range [Min, Max]
+GetRandomFloat<public>(Min:float, Max:float):float=
+    # Note: Simplified random - actual implementation may vary
+    RandomFraction := Float[GetSimulationTickCount() mod 1000] / 1000.0
+    return Lerp(Min, Max, RandomFraction)
+
+# Get random point in circle
+GetRandomPointInCircle<public>(Center:vector3, Radius:float):vector3=
+    Angle := GetRandomFloat(0.0, 360.0)
+    Distance := GetRandomFloat(0.0, Radius)
+
+    AngleRad := DegreesToRadians(Angle)
+    X := Center.X + (Distance * Cos(AngleRad))
+    Y := Center.Y + (Distance * Sin(AngleRad))
+
+    return vector3{X := X, Y := Y, Z := Center.Z}
+
+# Calculate percentage
+GetPercentage<public>(Value:float, Total:float):float=
+    if (Total = 0.0):
+        return 0.0
+    return (Value / Total) * 100.0
+
+# Check if value is within range
+IsInRange<public>(Value:float, Min:float, Max:float)<decides>:void=
+    Value >= Min and Value <= Max
+
+# Get midpoint between two points
+GetMidpoint<public>(A:vector3, B:vector3):vector3=
+    return vector3{
+        X := (A.X + B.X) / 2.0,
+        Y := (A.Y + B.Y) / 2.0,
+        Z := (A.Z + B.Z) / 2.0
+    }
+
+# Square root approximation
+Sqrt<public>(Value:float):float=
+    # Built-in Sqrt or custom implementation
+    if (Value <= 0.0):
+        return 0.0
+    # Placeholder - actual implementation depends on available APIs
+    return Value # Replace with actual sqrt
+
+# Power function
+Pow<public>(Base:float, Exponent:int):float=
+    if (Exponent = 0):
+        return 1.0
+
+    var Result:float = Base
+    for (I := 1..AbsInt(Exponent) - 1):
+        set Result = Result * Base
+
+    if (Exponent < 0):
+        return 1.0 / Result
+
+    return Result
+
+# Min of two floats
+Min<public>(A:float, B:float):float=
+    if (A < B):
+        return A
+    return B
+
+# Max of two floats
+Max<public>(A:float, B:float):float=
+    if (A > B):
+        return A
+    return B
+
+# Floor function
+Floor<public>(Value:float):int=
+    # Placeholder - depends on available APIs
+    IntValue := Int[Value]
+    if (Float[IntValue] > Value):
+        return IntValue - 1
+    return IntValue
+
+# Ceiling function
+Ceil<public>(Value:float):int=
+    IntValue := Int[Value]
+    if (Float[IntValue] < Value):
+        return IntValue + 1
+    return IntValue
+
+# Cosine (placeholder)
+Cos<public>(AngleRadians:float):float=
+    # Requires trigonometry API
+    return 0.0
+
+# Sine (placeholder)
+Sin<public>(AngleRadians:float):float=
+    # Requires trigonometry API
+    return 0.0
+
+# Arccosine (placeholder)
+Acos<public>(Value:float):float=
+    # Requires trigonometry API
+    return 0.0

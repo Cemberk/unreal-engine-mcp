@@ -1,0 +1,102 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Fortnite.com/Game }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Team Manager
+# Manages team assignment, scoring, and win conditions
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    TeamSwitcher<private>: team_settings_and_inventory_device = team_settings_and_inventory_device{}
+
+    var TeamPlayers<private>: [int][]agent = map{}
+    var TeamScores<private>: [int]int = map{}
+
+    var NumberOfTeams<private>:int = {{NUMBER_OF_TEAMS}}
+
+    OnBegin<override>()<suspends>:void=
+        # Initialize teams
+        InitializeTeams()
+
+        Print("Team Manager initialized with {NumberOfTeams} teams")
+
+    # Initialize team data structures
+    InitializeTeams():void=
+        for (TeamID := 0..NumberOfTeams - 1):
+            set TeamPlayers[TeamID] = array{}
+            set TeamScores[TeamID] = 0
+
+    # Assign player to team
+    AssignToTeam(Agent:agent, TeamID:int):void=
+        if (TeamID >= 0, TeamID < NumberOfTeams):
+            # TeamSwitcher.SetTeam(Agent, TeamID)
+
+            # Update tracking
+            if (var Players := TeamPlayers[TeamID]):
+                set Players += array{Agent}
+                set TeamPlayers[TeamID] = Players
+
+            Print("Assigned {Agent} to Team {TeamID}")
+
+    # Balance teams (distribute players evenly)
+    BalanceTeams(AllPlayers:[]agent):void=
+        var TeamIndex:int = 0
+
+        for (Player : AllPlayers):
+            AssignToTeam(Player, TeamIndex)
+            set TeamIndex = (TeamIndex + 1) mod NumberOfTeams
+
+    # Get team for agent
+    GetTeamID(Agent:agent):int=
+        if (FortChar := Agent.GetFortCharacter[], Team := FortChar.GetTeam[]):
+            return Team.GetTeamIndex()
+        return -1
+
+    # Get all players on team
+    GetTeamPlayers(TeamID:int):[]agent=
+        if (Players := TeamPlayers[TeamID]?):
+            return Players
+        return array{}
+
+    # Get team score
+    GetTeamScore(TeamID:int):int=
+        if (Score := TeamScores[TeamID]?):
+            return Score
+        return 0
+
+    # Add score to team
+    AddTeamScore(TeamID:int, Points:int):void=
+        CurrentScore := GetTeamScore(TeamID)
+        set TeamScores[TeamID] = CurrentScore + Points
+
+        Print("Team {TeamID} scored {Points} points (Total: {CurrentScore + Points})")
+
+    # Get team with highest score
+    GetWinningTeam():int=
+        var WinningTeamID:int = 0
+        var HighestScore:int = 0
+
+        for (Entry : TeamScores):
+            TeamID := Entry(0)
+            Score := Entry(1)
+            if (Score > HighestScore):
+                set WinningTeamID = TeamID
+                set HighestScore = Score
+
+        return WinningTeamID
+
+    # Check if teams are on same team
+    AreOnSameTeam(Agent1:agent, Agent2:agent)<decides>:void=
+        GetTeamID(Agent1) = GetTeamID(Agent2)
+
+    # Get team size
+    GetTeamSize(TeamID:int):int=
+        return GetTeamPlayers(TeamID).Length
+
+    # Reset team scores
+    ResetTeamScores():void=
+        for (TeamID := 0..NumberOfTeams - 1):
+            set TeamScores[TeamID] = 0

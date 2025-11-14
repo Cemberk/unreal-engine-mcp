@@ -1,0 +1,33 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Damage Volume Device
+# Applies damage to players in area
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    DamageZone<private>: mutator_zone_device = mutator_zone_device{}
+
+    @editable
+    DamagePerSecond<private>:float = {{DAMAGE_AMOUNT}}
+
+    OnBegin<override>()<suspends>:void=
+        DamageZone.AgentEntersEvent.Subscribe(OnPlayerEnters)
+        DamageZone.AgentExitsEvent.Subscribe(OnPlayerExits)
+        spawn{ DamageLoop() }
+
+    OnPlayerEnters(Agent:agent):void=
+        Print("{Agent} entered damage zone")
+
+    OnPlayerExits(Agent:agent):void=
+        Print("{Agent} exited damage zone")
+
+    DamageLoop()<suspends>:void=
+        loop:
+            Sleep(1.0)
+            # Apply damage to players in zone
+            # for (Player : GetPlayersInZone()):
+            #     DamagePlayer(Player, DamagePerSecond)

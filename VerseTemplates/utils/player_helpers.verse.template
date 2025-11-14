@@ -1,0 +1,150 @@
+using { /Fortnite.com/Characters }
+using { /Fortnite.com/Game }
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+
+# {{DESCRIPTION}}
+# Template: Player Helper Utilities
+# Common player query and manipulation functions
+
+# Get all players in the game
+GetAllPlayers<public>():[]agent=
+    var Players:[]agent = array{}
+    AllPlayers := GetPlayspace().GetPlayers()
+    for (Player : AllPlayers):
+        if (Agent := agent[Player]):
+            set Players += array{Agent}
+    return Players
+
+# Get player's current health
+GetPlayerHealth<public>(Agent:agent):float=
+    if (FortChar := Agent.GetFortCharacter[]):
+        if (HealthComponent := FortChar.GetHealthComponent[]):
+            return HealthComponent.GetHealth()
+    return 0.0
+
+# Get player's max health
+GetPlayerMaxHealth<public>(Agent:agent):float=
+    if (FortChar := Agent.GetFortCharacter[]):
+        if (HealthComponent := FortChar.GetHealthComponent[]):
+            return HealthComponent.GetMaxHealth()
+    return 0.0
+
+# Set player's health
+SetPlayerHealth<public>(Agent:agent, Health:float):void=
+    if (FortChar := Agent.GetFortCharacter[]):
+        if (HealthComponent := FortChar.GetHealthComponent[]):
+            HealthComponent.SetHealth(Health)
+
+# Heal player by amount
+HealPlayer<public>(Agent:agent, Amount:float):void=
+    CurrentHealth := GetPlayerHealth(Agent)
+    MaxHealth := GetPlayerMaxHealth(Agent)
+    NewHealth := Min(CurrentHealth + Amount, MaxHealth)
+    SetPlayerHealth(Agent, NewHealth)
+
+# Damage player
+DamagePlayer<public>(Agent:agent, Damage:float):void=
+    CurrentHealth := GetPlayerHealth(Agent)
+    NewHealth := Max(CurrentHealth - Damage, 0.0)
+    SetPlayerHealth(Agent, NewHealth)
+
+# Check if player is alive
+IsPlayerAlive<public>(Agent:agent)<decides>:void=
+    GetPlayerHealth(Agent) > 0.0
+
+# Get player's team ID
+GetPlayerTeamID<public>(Agent:agent):int=
+    if (FortChar := Agent.GetFortCharacter[], Team := FortChar.GetTeam[]):
+        return Team.GetTeamIndex()
+    return -1
+
+# Check if two players are on same team
+ArePlayersOnSameTeam<public>(Agent1:agent, Agent2:agent)<decides>:void=
+    GetPlayerTeamID(Agent1) = GetPlayerTeamID(Agent2)
+
+# Get players on specific team
+GetPlayersOnTeam<public>(TeamID:int):[]agent=
+    var TeamPlayers:[]agent = array{}
+    AllPlayers := GetAllPlayers()
+
+    for (Player : AllPlayers):
+        if (GetPlayerTeamID(Player) = TeamID):
+            set TeamPlayers += array{Player}
+
+    return TeamPlayers
+
+# Get player's display name (if available)
+GetPlayerName<public>(Agent:agent):string=
+    # Note: May require specific API access
+    return "Player"
+
+# Teleport player to location
+TeleportPlayer<public>(Agent:agent, Location:vector3):void=
+    if (FortChar := Agent.GetFortCharacter[]):
+        FortChar.TeleportTo[Location, rotation{}]
+
+# Get player's current location
+GetPlayerLocation<public>(Agent:agent):vector3=
+    if (FortChar := Agent.GetFortCharacter[]):
+        return FortChar.GetTransform().Translation
+    return vector3{X:=0.0, Y:=0.0, Z:=0.0}
+
+# Get distance between two players
+GetDistanceBetweenPlayers<public>(Agent1:agent, Agent2:agent):float=
+    Loc1 := GetPlayerLocation(Agent1)
+    Loc2 := GetPlayerLocation(Agent2)
+    return Distance(Loc1, Loc2)
+
+# Find nearest player to agent
+FindNearestPlayer<public>(Agent:agent, OtherPlayers:[]agent):?agent=
+    var NearestPlayer:?agent = false
+    var NearestDistance:float = 999999.0
+
+    for (OtherPlayer : OtherPlayers):
+        if (Agent <> OtherPlayer):
+            Dist := GetDistanceBetweenPlayers(Agent, OtherPlayer)
+            if (Dist < NearestDistance):
+                set NearestPlayer = option{OtherPlayer}
+                set NearestDistance = Dist
+
+    return NearestPlayer
+
+# Get players within radius of location
+GetPlayersInRadius<public>(Location:vector3, Radius:float):[]agent=
+    var PlayersInRadius:[]agent = array{}
+    AllPlayers := GetAllPlayers()
+
+    for (Player : AllPlayers):
+        PlayerLoc := GetPlayerLocation(Player)
+        if (Distance(Location, PlayerLoc) <= Radius):
+            set PlayersInRadius += array{Player}
+
+    return PlayersInRadius
+
+# Give item to player (requires item_granter_device)
+GiveItemToPlayer<public>(Agent:agent, ItemGranter:item_granter_device):void=
+    ItemGranter.GrantItem(Agent)
+
+# Remove all items from player (requires item_remover_device)
+RemoveAllItemsFromPlayer<public>(Agent:agent, ItemRemover:item_remover_device):void=
+    ItemRemover.RemoveItems(Agent)
+
+# Respawn player (requires player_spawner_device)
+RespawnPlayer<public>(Agent:agent, Spawner:player_spawner_device):void=
+    Spawner.SpawnPlayer(Agent)
+
+# Eliminate player
+EliminatePlayer<public>(Agent:agent):void=
+    DamagePlayer(Agent, 9999.0)
+
+# Check if player has specific item (placeholder - requires inventory API)
+PlayerHasItem<public>(Agent:agent, ItemName:string)<decides>:void=
+    # Implementation depends on item tracking system
+    false
+
+# Print message to player's screen (requires HUD message device)
+ShowMessageToPlayer<public>(Agent:agent, Message:string, HUDDevice:hud_message_device):void=
+    # HUDDevice.SetText(Message)
+    # HUDDevice.Show(Agent)
+    Print("Message to {Agent}: {Message}")

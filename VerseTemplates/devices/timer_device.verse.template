@@ -1,0 +1,110 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+
+# {{DESCRIPTION}}
+# Template: Timer Device Handler
+# Supports countdown timers, interval timers, and repeating timers
+# Generated: {{TIMESTAMP}}
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    {{TIMER_NAME}}: timer_device = timer_device{}
+
+    @editable
+    TimerDuration<private>:float = {{DURATION_SECONDS}}
+
+    @editable
+    IsRepeating<private>:logic = {{IS_REPEATING}}
+
+    var IsTimerRunning<private>:logic = false
+
+    # Called when the device is started in a running game
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to timer events
+        {{TIMER_NAME}}.SuccessEvent.Subscribe(OnTimerComplete)
+        {{TIMER_NAME}}.CountdownEndEvent.Subscribe(OnCountdownEnd)
+
+        {{#IF_AUTO_START}}
+        # Auto-start timer
+        StartTimer()
+        {{/IF_AUTO_START}}
+
+        Print("{{MODULE_NAME}} initialized - Duration: {TimerDuration}s")
+
+    # Start the timer
+    StartTimer():void=
+        {{TIMER_NAME}}.Start()
+        set IsTimerRunning = true
+        Print("Timer started")
+
+    # Stop the timer
+    StopTimer():void=
+        {{TIMER_NAME}}.Stop()
+        set IsTimerRunning = false
+        Print("Timer stopped")
+
+    # Pause the timer
+    PauseTimer():void=
+        {{TIMER_NAME}}.Pause()
+        Print("Timer paused")
+
+    # Resume the timer
+    ResumeTimer():void=
+        {{TIMER_NAME}}.Resume()
+        Print("Timer resumed")
+
+    # Reset the timer
+    ResetTimer():void=
+        {{TIMER_NAME}}.Reset()
+        set IsTimerRunning = false
+        Print("Timer reset")
+
+    # Handles timer completion
+    OnTimerComplete():void=
+        Print("Timer completed")
+        set IsTimerRunning = false
+
+        {{CUSTOM_ON_COMPLETE}}
+
+        if (IsRepeating):
+            # Restart timer if repeating
+            StartTimer()
+
+    # Handles countdown end event
+    OnCountdownEnd():void=
+        Print("Countdown ended")
+
+        {{CUSTOM_ON_COUNTDOWN_END}}
+
+    {{#IF_INTERVAL}}
+    # Interval timer logic
+    IntervalTask<private>()<suspends>:void=
+        loop:
+            Sleep({{INTERVAL_SECONDS}})
+            if (IsTimerRunning):
+                OnIntervalTick()
+
+    OnIntervalTick():void=
+        Print("Interval tick")
+        {{CUSTOM_INTERVAL_LOGIC}}
+    {{/IF_INTERVAL}}
+
+    {{#IF_DISPLAY_HUD}}
+    # Update HUD with timer value
+    UpdateTimerDisplay()<suspends>:void=
+        loop:
+            if (IsTimerRunning):
+                # Get remaining time and update display
+                # RemainingTime := {{TIMER_NAME}}.GetTimeRemaining()
+                # UpdateHUDText(RemainingTime)
+                Sleep(0.1)
+    {{/IF_DISPLAY_HUD}}
+
+    # Get timer progress (0.0 to 1.0)
+    GetTimerProgress():float=
+        # Return progress percentage
+        # CurrentTime := {{TIMER_NAME}}.GetCurrentTime()
+        # return CurrentTime / TimerDuration
+        return 0.0

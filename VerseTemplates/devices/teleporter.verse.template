@@ -1,0 +1,25 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Teleporter Device
+# Teleports players between locations
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    TeleportPad<private>: mutator_zone_device = mutator_zone_device{}
+
+    @editable
+    DestinationTeleporter<private>: teleporter_device = teleporter_device{}
+
+    On Begin<override>()<suspends>:void=
+        TeleportPad.AgentEntersEvent.Subscribe(OnPlayerEntersPad)
+
+    OnPlayerEntersPad(Agent:agent):void=
+        TeleportPlayer(Agent)
+
+    TeleportPlayer(Agent:agent):void=
+        DestinationTeleporter.Teleport(Agent)
+        Print("Teleported {Agent}")

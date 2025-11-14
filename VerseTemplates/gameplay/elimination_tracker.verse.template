@@ -1,0 +1,85 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Elimination Tracker
+# Tracks player eliminations and awards points
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    EliminationManager<private>: end_game_device = end_game_device{}
+
+    var EliminationCounts<private>: [agent]int = map{}
+    var DeathCounts<private>: [agent]int = map{}
+
+    @editable
+    PointsPerElimination<private>:int = {{POINTS_PER_KILL}}
+
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to elimination events
+        # Note: Requires player spawner or similar device
+        Print("Elimination Tracker initialized")
+
+    # Handle player elimination
+    OnPlayerEliminated(Eliminator:agent, Victim:agent):void=
+        # Track eliminator's kills
+        CurrentKills := if (Kills := EliminationCounts[Eliminator]?) then Kills else 0
+        set EliminationCounts[Eliminator] = CurrentKills + 1
+
+        # Track victim's deaths
+        CurrentDeaths := if (Deaths := DeathCounts[Victim]?) then Deaths else 0
+        set DeathCounts[Victim] = CurrentDeaths + 1
+
+        Print("{Eliminator} eliminated {Victim} (Kills: {CurrentKills + 1})")
+
+        # Award points
+        {{#IF_SCORING}}
+        AwardEliminationPoints(Eliminator)
+        {{/IF_SCORING}}
+
+    # Award points for elimination
+    AwardEliminationPoints(Agent:agent):void=
+        # ScoreManager.AddScore(Agent, PointsPerElimination)
+        pass
+
+    # Get elimination count for player
+    GetEliminationCount(Agent:agent):int=
+        if (Kills := EliminationCounts[Agent]?):
+            return Kills
+        return 0
+
+    # Get death count for player
+    GetDeathCount(Agent:agent):int=
+        if (Deaths := DeathCounts[Agent]?):
+            return Deaths
+        return 0
+
+    # Get K/D ratio
+    GetKDRatio(Agent:agent):float=
+        Kills := GetEliminationCount(Agent)
+        Deaths := GetDeathCount(Agent)
+
+        if (Deaths > 0):
+            return Float[Kills] / Float[Deaths]
+        return Float[Kills]
+
+    # Get top eliminator
+    GetTopEliminator():?agent=
+        var TopAgent:?agent = false
+        var TopKills:int = 0
+
+        for (Entry : EliminationCounts):
+            Agent := Entry(0)
+            Kills := Entry(1)
+            if (Kills > TopKills):
+                set TopAgent = option{Agent}
+                set TopKills = Kills
+
+        return TopAgent
+
+    # Reset elimination stats
+    ResetStats():void=
+        set EliminationCounts = map{}
+        set DeathCounts = map{}

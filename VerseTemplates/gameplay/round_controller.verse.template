@@ -1,0 +1,118 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Game }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Round Controller
+# Manages game rounds with start/end logic
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    RoundTimer<private>: timer_device = timer_device{}
+
+    @editable
+    RoundDuration<private>:float = {{ROUND_DURATION_SECONDS}}
+
+    @editable
+    IntermissionDuration<private>:float = {{INTERMISSION_SECONDS}}
+
+    @editable
+    MaxRounds<private>:int = {{MAX_ROUNDS}}
+
+    var CurrentRound<private>:int = 0
+    var IsRoundActive<private>:logic = false
+
+    OnBegin<override>()<suspends>:void=
+        RoundTimer.SuccessEvent.Subscribe(OnRoundTimeUp)
+
+        # Start first round after delay
+        spawn:
+            Sleep({{START_DELAY_SECONDS}})
+            StartNextRound()
+
+    # Start next round
+    StartNextRound()<suspends>:void=
+        if (CurrentRound >= MaxRounds):
+            EndGame()
+            return
+
+        set CurrentRound = CurrentRound + 1
+        set IsRoundActive = true
+
+        Print("Round {CurrentRound} starting...")
+
+        # Pre-round setup
+        PrepareRound()
+
+        # Countdown
+        Sleep(3.0)
+
+        # Start round
+        OnRoundStart()
+
+        # Start round timer
+        RoundTimer.Start()
+
+    # Prepare round (spawn players, reset arena, etc.)
+    PrepareRound():void=
+        {{CUSTOM_ROUND_PREP}}
+        # Example: Respawn all players, reset objectives
+
+    # Handle round start
+    OnRoundStart():void=
+        Print("Round {CurrentRound} - FIGHT!")
+
+        {{CUSTOM_ROUND_START}}
+
+    # Handle round end
+    OnRoundEnd():void=
+        set IsRoundActive = false
+
+        Print("Round {CurrentRound} ended")
+
+        {{CUSTOM_ROUND_END}}
+
+        # Show round results
+        # DisplayRoundResults()
+
+        # Start intermission
+        spawn:
+            Intermission()
+
+    # Round time expired
+    OnRoundTimeUp():void=
+        OnRoundEnd()
+
+    # End round early (e.g., win condition met)
+    EndRoundEarly(Winner:?agent):void=
+        RoundTimer.Stop()
+
+        if (WinnerAgent := Winner?):
+            Print("{WinnerAgent} won round {CurrentRound}")
+
+        OnRoundEnd()
+
+    # Intermission between rounds
+    Intermission()<suspends>:void=
+        Print("Intermission - Next round in {IntermissionDuration}s")
+
+        Sleep(IntermissionDuration)
+
+        # Start next round
+        StartNextRound()
+
+    # End game (all rounds complete)
+    EndGame():void=
+        Print("Game Over - {CurrentRound} rounds complete")
+
+        {{CUSTOM_GAME_END}}
+
+        # Determine overall winner
+        # DetermineWinner()
+
+    # Reset round controller
+    ResetRounds():void=
+        set CurrentRound = 0
+        set IsRoundActive = false
+        RoundTimer.Reset()

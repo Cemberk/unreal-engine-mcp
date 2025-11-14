@@ -1,0 +1,141 @@
+using { /Fortnite.com/Devices }
+using { /Fortnite.com/Characters }
+using { /Verse.org/Simulation }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+
+# {{DESCRIPTION}}
+# Template: Item/Prop Spawner Device
+# Handles spawning items, props, or NPCs at specified locations
+# Generated: {{TIMESTAMP}}
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    {{SPAWNER_NAME}}: item_spawner_device = item_spawner_device{}
+
+    {{#IF_MULTIPLE_SPAWNERS}}
+    @editable
+    SpawnPoints<private>: []item_spawner_device = array{}
+    {{/IF_MULTIPLE_SPAWNERS}}
+
+    @editable
+    SpawnDelay<private>:float = {{SPAWN_DELAY_SECONDS}}
+
+    @editable
+    MaxSpawns<private>:int = {{MAX_SPAWNS}}
+
+    var CurrentSpawnCount<private>:int = 0
+    var IsSpawningActive<private>:logic = false
+
+    # Called when the device is started in a running game
+    OnBegin<override>()<suspends>:void=
+        # Subscribe to spawner events
+        {{SPAWNER_NAME}}.ItemPickedUpEvent.Subscribe(OnItemPickedUp)
+        {{SPAWNER_NAME}}.ItemSpawnedEvent.Subscribe(OnItemSpawned)
+
+        {{#IF_AUTO_SPAWN}}
+        # Auto-start spawning
+        StartSpawning()
+        {{/IF_AUTO_SPAWN}}
+
+        Print("{{MODULE_NAME}} initialized")
+
+    # Start spawning items
+    StartSpawning()<suspends>:void=
+        set IsSpawningActive = true
+        Print("Spawning started")
+
+        {{#IF_CONTINUOUS}}
+        # Continuous spawning loop
+        spawn:
+            ContinuousSpawnLoop()
+        {{ELSE}}
+        # Single spawn
+        SpawnItem()
+        {{/IF_CONTINUOUS}}
+
+    # Stop spawning items
+    StopSpawning():void=
+        set IsSpawningActive = false
+        {{SPAWNER_NAME}}.Disable()
+        Print("Spawning stopped")
+
+    # Spawn a single item
+    SpawnItem():void=
+        if (CurrentSpawnCount < MaxSpawns or MaxSpawns = -1):
+            {{SPAWNER_NAME}}.Enable()
+            set CurrentSpawnCount = CurrentSpawnCount + 1
+            Print("Item spawned (count: {CurrentSpawnCount})")
+
+            {{CUSTOM_ON_SPAWN}}
+        else:
+            Print("Max spawns reached")
+            StopSpawning()
+
+    # Continuous spawning loop
+    ContinuousSpawnLoop()<suspends>:void=
+        loop:
+            if (not IsSpawningActive):
+                break
+
+            SpawnItem()
+            Sleep(SpawnDelay)
+
+    # Handles item picked up event
+    OnItemPickedUp(Agent:agent):void=
+        Print("{Agent} picked up item")
+
+        {{CUSTOM_ON_PICKUP}}
+
+        {{#IF_RESPAWN_ON_PICKUP}}
+        # Respawn after delay
+        spawn:
+            RespawnAfterDelay()
+        {{/IF_RESPAWN_ON_PICKUP}}
+
+    # Handles item spawned event
+    OnItemSpawned():void=
+        Print("Item spawned")
+
+        {{CUSTOM_ON_ITEM_SPAWNED}}
+
+    {{#IF_RESPAWN_ON_PICKUP}}
+    # Respawn item after pickup
+    RespawnAfterDelay()<suspends>:void=
+        Sleep({{RESPAWN_DELAY_SECONDS}})
+        if (IsSpawningActive):
+            SpawnItem()
+    {{/IF_RESPAWN_ON_PICKUP}}
+
+    {{#IF_RANDOM_SPAWNER}}
+    # Spawn at random spawn point
+    SpawnAtRandomPoint():void=
+        if (RandomSpawner := SpawnPoints[GetRandomInt(0, SpawnPoints.Length - 1)]):
+            RandomSpawner.Enable()
+            Print("Spawned at random point")
+    {{/IF_RANDOM_SPAWNER}}
+
+    {{#IF_WAVE_SPAWNING}}
+    # Wave-based spawning
+    var CurrentWave<private>:int = 0
+    var SpawnsPerWave<private>:int = {{SPAWNS_PER_WAVE}}
+
+    SpawnWave()<suspends>:void=
+        set CurrentWave = CurrentWave + 1
+        Print("Spawning wave {CurrentWave}")
+
+        for (Index := 0..SpawnsPerWave - 1):
+            SpawnItem()
+            Sleep({{WAVE_SPAWN_INTERVAL}})
+
+        Print("Wave {CurrentWave} complete")
+    {{/IF_WAVE_SPAWNING}}
+
+    # Reset spawner
+    ResetSpawner():void=
+        set CurrentSpawnCount = 0
+        set IsSpawningActive = false
+        {{#IF_WAVE_SPAWNING}}
+        set CurrentWave = 0
+        {{/IF_WAVE_SPAWNING}}
+        Print("Spawner reset")

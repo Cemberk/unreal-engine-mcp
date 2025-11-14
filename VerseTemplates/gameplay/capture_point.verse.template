@@ -1,0 +1,104 @@
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+
+# {{DESCRIPTION}}
+# Template: Capture Point System
+# King of the Hill / Capture Point gameplay
+
+{{MODULE_NAME}} := class(creative_device):
+
+    @editable
+    CaptureZone<private>: mutator_zone_device = mutator_zone_device{}
+
+    @editable
+    CaptureTime<private>:float = {{CAPTURE_TIME_SECONDS}}
+
+    var ControllingTeam<private>:int = -1
+    var CaptureProgress<private>:float = 0.0
+    var PlayersInZone<private>: [agent]logic = map{}
+
+    OnBegin<override>()<suspends>:void=
+        CaptureZone.AgentEntersEvent.Subscribe(OnPlayerEnters)
+        CaptureZone.AgentExitsEvent.Subscribe(OnPlayerExits)
+
+        spawn{ CaptureLoop() }
+
+    OnPlayerEnters(Agent:agent):void=
+        set PlayersInZone[Agent] = true
+        Print("{Agent} entered capture point")
+
+    OnPlayerExits(Agent:agent):void=
+        if (set PlayersInZone[Agent] = false):
+            Print("{Agent} exited capture point")
+
+    CaptureLoop()<suspends>:void=
+        loop:
+            Sleep(0.1)
+            UpdateCaptureProgress()
+
+    UpdateCaptureProgress():void=
+        # Determine dominant team in zone
+        DominantTeam := GetDominantTeam()
+
+        if (DominantTeam >= 0):
+            if (DominantTeam = ControllingTeam):
+                # Same team - maintain control
+                pass
+            else:
+                # Different team - progress towards capture
+                set CaptureProgress = CaptureProgress + (0.1 / CaptureTime)
+
+                if (CaptureProgress >= 1.0):
+                    CapturePoint(DominantTeam)
+        else:
+            # No dominant team - progress decays
+            set CaptureProgress = CaptureProgress - (0.1 / CaptureTime)
+            if (CaptureProgress < 0.0):
+                set CaptureProgress = 0.0
+
+    GetDominantTeam():int=
+        # Count players by team
+        var TeamCounts:[int]int = map{}
+
+        for (Entry : PlayersInZone):
+            if (Entry(1)): # Player is in zone
+                Agent := Entry(0)
+                TeamID := GetTeamID(Agent)
+
+                if (TeamID >= 0):
+                    Count := if (C := TeamCounts[TeamID]?) then C else 0
+                    set TeamCounts[TeamID] = Count + 1
+
+        # Find team with most players
+        var DominantTeam:int = -1
+        var MaxCount:int = 0
+        var IsTied:logic = false
+
+        for (Entry : TeamCounts):
+            TeamID := Entry(0)
+            Count := Entry(1)
+
+            if (Count > MaxCount):
+                set DominantTeam = TeamID
+                set MaxCount = Count
+                set IsTied = false
+            else if (Count = MaxCount, MaxCount > 0):
+                set IsTied = true
+
+        if (IsTied):
+            return -1
+
+        return DominantTeam
+
+    CapturePoint(TeamID:int):void=
+        set ControllingTeam = TeamID
+        set CaptureProgress = 0.0
+
+        Print("Team {TeamID} captured the point!")
+
+        {{CUSTOM_CAPTURE_LOGIC}}
+
+    GetTeamID(Agent:agent):int=
+        if (FortChar := Agent.GetFortCharacter[], Team := FortChar.GetTeam[]):
+            return Team.GetTeamIndex()
+        return -1
