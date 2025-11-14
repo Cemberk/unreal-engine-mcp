@@ -1819,3 +1819,140 @@ async def list_verse_templates() -> str:
     return list_available_templates()
 
 
+# ============================================================================
+# Phase 4: Asset Export Tools (UEFN/Fortnite)
+# ============================================================================
+
+@mcp.tool()
+async def export_level_to_uefn(
+    level_name: str,
+    actors_json: str,
+    export_path: str,
+    uefn_project_path: str = "",
+    options: dict = None
+) -> str:
+    """
+    Export UE5 level to UEFN format with asset manifest and Verse spawn code.
+
+    This is the main export orchestrator that:
+    1. Parses actor data from UE5 level
+    2. Generates asset manifest mapping UE5 → UEFN paths
+    3. Creates export directory structure
+    4. Optionally generates Verse spawn code
+
+    Args:
+        level_name: Name of the UE5 level to export
+        actors_json: JSON string containing actor data from level
+                     Expected format: [{"name": "Actor1", "class": "StaticMeshActor",
+                                       "location": {...}, "rotation": {...}, ...}, ...]
+        export_path: Directory path where export files will be created
+        uefn_project_path: Optional path to UEFN project for direct integration
+        options: Optional export options:
+                 - generate_spawn_code: bool (default True)
+                 - spawn_on_begin: bool (default True)
+                 - detailed_spawn_functions: bool (default False)
+                 - asset_format: str (default 'fbx')
+
+    Returns:
+        JSON string with export summary including paths, counts, and warnings
+
+    Examples:
+        # Basic export
+        result = await export_level_to_uefn(
+            'CastleLevel',
+            json.dumps(actors),
+            'Exports/CastleLevel'
+        )
+
+        # Export with UEFN integration
+        result = await export_level_to_uefn(
+            'CastleLevel',
+            json.dumps(actors),
+            'Exports/CastleLevel',
+            uefn_project_path='C:/UEFN/MyProject',
+            options={'spawn_on_begin': True}
+        )
+    """
+    from export_mcp_tools import export_level_to_uefn as export_level
+    return export_level(level_name, actors_json, export_path, uefn_project_path or None, options)
+
+
+@mcp.tool()
+async def generate_verse_spawn_map(
+    level_name: str,
+    actors_json: str,
+    output_path: str,
+    options: dict = None
+) -> str:
+    """
+    Generate Verse spawn code from UE5 level data.
+
+    Creates a Verse spawner device that recreates the level's actor layout.
+    This is a focused tool for just generating the spawn code without full export.
+
+    Args:
+        level_name: Name of the level
+        actors_json: JSON string with actor data
+                     Format: [{"name": "...", "class": "...", "location": {...}, ...}]
+        output_path: Path where .verse file will be saved
+        options: Generation options:
+                 - spawn_on_begin: bool (default True)
+                 - use_spawner_devices: bool (default True)
+                 - detailed_spawn_functions: bool (default False)
+
+    Returns:
+        JSON string with generation result (success, path, line count, preview)
+
+    Examples:
+        # Generate spawn code
+        result = await generate_verse_spawn_map(
+            'CastleLevel',
+            json.dumps(actors),
+            'Exports/CastleLevel/spawner.verse',
+            options={'spawn_on_begin': True}
+        )
+    """
+    from export_mcp_tools import generate_verse_spawn_map as generate_spawn
+    return generate_spawn(level_name, actors_json, output_path, options)
+
+
+@mcp.tool()
+async def package_assets_for_fortnite(
+    manifest_path: str,
+    export_path: str,
+    validation_level: str = "standard"
+) -> str:
+    """
+    Package and validate assets for UEFN/Fortnite Creative deployment.
+
+    Validates the asset manifest and export structure to ensure UEFN compatibility.
+
+    Args:
+        manifest_path: Path to the asset manifest JSON file
+        export_path: Path to the export directory
+        validation_level: Validation strictness:
+                         - "basic": Check manifest structure only
+                         - "standard": Check files and paths (default)
+                         - "strict": Full UEFN compatibility validation
+
+    Returns:
+        JSON string with validation result including errors, warnings, and recommendations
+
+    Examples:
+        # Standard validation
+        result = await package_assets_for_fortnite(
+            'Exports/CastleLevel/Manifests/CastleLevel_manifest.json',
+            'Exports/CastleLevel'
+        )
+
+        # Strict validation
+        result = await package_assets_for_fortnite(
+            'Exports/CastleLevel/Manifests/CastleLevel_manifest.json',
+            'Exports/CastleLevel',
+            validation_level='strict'
+        )
+    """
+    from export_mcp_tools import package_assets_for_fortnite as package_assets
+    return package_assets(manifest_path, export_path, validation_level)
+
+

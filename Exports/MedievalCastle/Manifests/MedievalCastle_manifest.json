@@ -1,0 +1,103 @@
+{
+  "level_name": "MedievalCastle",
+  "export_date": "2025-11-13T18:59:47.264683",
+  "export_path": "Exports/MedievalCastle",
+  "total_actors": 197,
+  "assets": [
+    {
+      "ue5_path": "/Game/Castle/Architecture/Floor_400x400",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Floor_400x400",
+      "type": "StaticMesh",
+      "export_file": "Floor_400x400.fbx",
+      "references": 100
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Wall_400x400",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Wall_400x400",
+      "type": "StaticMesh",
+      "export_file": "Wall_400x400.fbx",
+      "references": 38
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Tower_Round",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Tower_Round",
+      "type": "StaticMesh",
+      "export_file": "Tower_Round.fbx",
+      "references": 4
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Gate_Large",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Gate_Large",
+      "type": "StaticMesh",
+      "export_file": "Gate_Large.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Pillar_Stone",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Pillar_Stone",
+      "type": "StaticMesh",
+      "export_file": "Pillar_Stone.fbx",
+      "references": 9
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Throne",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Throne",
+      "type": "StaticMesh",
+      "export_file": "Throne.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Table_Large",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Table_Large",
+      "type": "StaticMesh",
+      "export_file": "Table_Large.fbx",
+      "references": 2
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Banner_Red",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Banner_Red",
+      "type": "StaticMesh",
+      "export_file": "Banner_Red.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Banner_Blue",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Banner_Blue",
+      "type": "StaticMesh",
+      "export_file": "Banner_Blue.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Barrel",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Barrel",
+      "type": "StaticMesh",
+      "export_file": "Barrel.fbx",
+      "references": 2
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Chest_Gold",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Chest_Gold",
+      "type": "StaticMesh",
+      "export_file": "Chest_Gold.fbx",
+      "references": 1
+    },
+    {
+      "ue5_path": "/Game/Castle/Props/Torch_Wall",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Torch_Wall",
+      "type": "StaticMesh",
+      "export_file": "Torch_Wall.fbx",
+      "references": 16
+    },
+    {
+      "ue5_path": "/Game/Castle/Architecture/Stair_Stone",
+      "uefn_path": "/Game/ImportedAssets/MedievalCastle/Stair_Stone",
+      "type": "StaticMesh",
+      "export_file": "Stair_Stone.fbx",
+      "references": 5
+    }
+  ],
+  "actor_types": {
+    "StaticMeshActor": 181,
+    "PointLight": 16
+  }
+}
